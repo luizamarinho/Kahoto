@@ -9,17 +9,43 @@
     <style>
       body {
         background-color: #25076b;
+        margin: 0px;
       }
-      .triangulo {
+      /* .triangulo {
         background-color: #46178f;
         height: 200px;
         width: 200px;
         transform: rotate(47deg);
+      } */
+      .logo {
+        width: 242px;
+        height: auto;
+        margin-left: 40px;
+        margin-top: 142px;
+      }
+      .iniciar {
+        width: 228px;
+        height: 37px;
+        background-color: white;
+        border: none;
+        color: #535151;
+        margin-top: 151px;
+        margin-left: 46px;
+        padding: 0px;
+
+        font-size: 21pt;
       }
     </style>
   </head>
   <body>
     <div class="triangulo"></div>
-    <img src="./Kahoot_Logo.svg.png" alt="Kahoot_Logo" />
+    <img
+      class="logo"
+      src="./Kahoot_Logo.svg.png"
+      alt="Kahoot_Logo"
+      height="200"
+      width="587"
+    />
+    <button type="button" onclick="iniciar()" class="iniciar">Iniciar</button>
   </body>
 </html>
