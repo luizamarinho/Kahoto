@@ -7,16 +7,15 @@
     <title>Kahoto!</title>
     <link rel="icon" type="image/x-icon" href="./K_.svg" />
     <style>
-      body {
-        background-color: #25076b;
+      .bg1 {
+        background-image: url('b_kahoto_telefone.png');
+        background-repeat: no-repeat;
         margin: 0px;
       }
-      /* .triangulo {
-        background-color: #46178f;
-        height: 200px;
-        width: 200px;
-        transform: rotate(47deg);
-      } */
+      .bg2 {
+        background-color: white;
+        margin: 0px;
+      }
       .logo {
         width: 242px;
         height: auto;
@@ -31,21 +30,123 @@
         color: #535151;
         margin-top: 151px;
         margin-left: 46px;
+        margin-right: 46px;
         padding: 0px;
-
+        cursor: pointer;
         font-size: 21pt;
+      }
+      .sumir {
+        display: none;
+        background-image: none;
+      }
+      .pergunta {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-style: bold;
+        font-size: 24px;
+        color: #343434;
+        padding-top: 36px;
+        padding-left: 23px;
+        padding-right: 23px;
+        margin: 0px;
+      }
+      .foto {
+        padding-left: 45px;
+        padding-right: 45px;
+        padding-top: 32px;
+      }
+      .alternativa_1 {
+        color: white;
+        background-color: #d03542;
+        border: none;
+        margin-top: 32px;
+        padding-top: 23px;
+        padding-bottom: 23px;
+        padding-left: 134px;
+        padding-right: 134px;
+        width: 100%;
+      }
+      .alternativa_2 {
+        color: white;
+        background-color: #cf9f36;
+        border: none;
+        margin-top: 0px;
+        padding-top: 23px;
+        padding-bottom: 23px;
+        padding-left: 134px;
+        padding-right: 134px;
+        width: 100%;
+      }
+      .alternativa_3 {
+        color: white;
+        background-color: #2f69c7;
+        border: none;
+        margin-top: 0px;
+        padding-top: 23px;
+        padding-bottom: 23px;
+        padding-left: 134px;
+        padding-right: 134px;
+        width: 100%;
+      }
+      .alternativa_4 {
+        color: white;
+        background-color: #468629;
+        border: none;
+        margin-top: 0px;
+        padding-top: 20px;
+        padding-bottom: 23px;
+        padding-left: 134px;
+        padding-right: 134px;
+        width: 100%;
       }
     </style>
   </head>
-  <body>
-    <div class="triangulo"></div>
-    <img
-      class="logo"
-      src="./Kahoot_Logo.svg.png"
-      alt="Kahoot_Logo"
-      height="200"
-      width="587"
-    />
-    <button type="button" onclick="iniciar()" class="iniciar">Iniciar</button>
+  <body class="bg1">
+    <div class="pagina_1 sumir">
+      <img
+        class="logo"
+        src="./Kahoot_Logo.svg.png"
+        alt="Kahoot_Logo"
+        height="200"
+        width="587"
+      />
+      <button type="button" onclick="iniciar()" class="iniciar">Iniciar</button>
+    </div>
+    <div class="pagina_2 sumir">
+      <h2 class="pergunta">Qual animal representa<br />o símbolo da paz?</h2>
+      <img
+        class="foto"
+        src="./formacao_peca-ao-senhor-paz-esperanca-e-bencaos-para-sua-vida.jpg"
+        alt="mãos_para_cima"
+        height="173px"
+        width="230"
+      />
+      <button type="button" class="alternativa_1" onclick="alternativa_1">
+        Pomba
+      </button>
+      <button type="button" class="alternativa_2" onclick="alternativa_2">
+        Gato
+      </button>
+      <button type="button" class="alternativa_3" onclick="alternativa_3">
+        Cobra
+      </button>
+      <button type="button" class="alternativa_4" onclick="alternativa_4">
+        Elefante
+      </button>
+    </div>
+    <script>
+      let body = document.querySelector('body');
+      let pagina_1 = document.querySelector('.pagina_1');
+      let pagina_2 = document.querySelector('.pagina_2');
+      pagina_1.classList.remove('sumir');
+
+      let iniciar = () => {
+        console.log('chegou aqui');
+        pagina_1.classList.add('sumir');
+        body.classList.add('bg2');
+        body.classList.remove('bg1');
+        pagina_2.classList.remove('sumir');
+      };
+    </script>
   </body>
 </html>
