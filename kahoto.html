@@ -53,18 +53,20 @@
       .foto {
         padding-left: 45px;
         padding-right: 45px;
-        padding-top: 32px;
+        padding-top: 35px;
+        display: block;
       }
       .alternativa_1 {
         color: white;
         background-color: #d03542;
         border: none;
-        margin-top: 32px;
+        margin-top: 35px;
         padding-top: 23px;
         padding-bottom: 23px;
         padding-left: 134px;
         padding-right: 134px;
         width: 100%;
+        font-size: 16px;
       }
       .alternativa_2 {
         color: white;
@@ -76,6 +78,7 @@
         padding-left: 134px;
         padding-right: 134px;
         width: 100%;
+        font-size: 16px;
       }
       .alternativa_3 {
         color: white;
@@ -87,17 +90,19 @@
         padding-left: 134px;
         padding-right: 134px;
         width: 100%;
+        font-size: 16px;
       }
       .alternativa_4 {
         color: white;
         background-color: #468629;
         border: none;
         margin-top: 0px;
-        padding-top: 20px;
+        padding-top: 23px;
         padding-bottom: 23px;
         padding-left: 134px;
         padding-right: 134px;
         width: 100%;
+        font-size: 16px;
       }
     </style>
   </head>
@@ -121,16 +126,16 @@
         height="173px"
         width="230"
       />
-      <button type="button" class="alternativa_1" onclick="alternativa_1">
+      <button type="button" class="alternativa_1" onclick="alternativa_1()">
         Pomba
       </button>
-      <button type="button" class="alternativa_2" onclick="alternativa_2">
+      <button type="button" class="alternativa_2" onclick="alternativa_2()">
         Gato
       </button>
-      <button type="button" class="alternativa_3" onclick="alternativa_3">
+      <button type="button" class="alternativa_3" onclick="alternativa_3()">
         Cobra
       </button>
-      <button type="button" class="alternativa_4" onclick="alternativa_4">
+      <button type="button" class="alternativa_4" onclick="alternativa_4()">
         Elefante
       </button>
     </div>
@@ -146,6 +151,10 @@
         body.classList.add('bg2');
         body.classList.remove('bg1');
         pagina_2.classList.remove('sumir');
+      };
+
+      let alternativa_1 = () => {
+        console.log('alternativa correta');
       };
     </script>
   </body>
