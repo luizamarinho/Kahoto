@@ -4,15 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Kahoto!</title>
-    <link rel="icon" type="image/x-icon" href="./K_.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Open Sans"
     />
     <style>
       .bg1 {
-        background-image: url('b_kahoto_telefone.png');
+        /* background-image: url('b_kahoto_telefone.png'); */
+        background-color: #25076b;
         background-repeat: no-repeat;
         margin: 0px;
       }
@@ -20,30 +21,36 @@
         background-color: white;
         margin: 0px;
       }
+
       .logo {
-        width: 242px;
+        width: 271px;
         height: auto;
-        margin-left: 40px;
-        margin-top: 142px;
+        margin-left: 25px;
+        margin-top: 143px;
       }
       .iniciar {
-        width: 228px;
-        height: 37px;
+        width: 199px;
+        height: 45px;
+        font-size: 24px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
         background-color: white;
         border: none;
         color: #535151;
-        margin-top: 151px;
-        margin-left: 46px;
-        margin-right: 46px;
+        margin-top: 139px;
+        margin-bottom: 144px;
+        margin-left: 61px;
+        margin-right: 61px;
         padding: 0px;
         cursor: pointer;
-        font-size: 21pt;
+        display: block;
+        border-radius: 100px;
       }
       .pergunta {
         text-align: center;
         font-family: 'Open Sans', sans-serif;
         font-size: 24px;
-        font-weight: bold;
+        font-weight: 700;
         color: #343434;
         padding-top: 36px;
         padding-left: 17px;
@@ -56,6 +63,14 @@
         padding-top: 30px;
         display: block;
       }
+      .vermelho {
+        background-color: #d72b2b;
+        color: white;
+      }
+      .verde {
+        background-color: #11811c;
+        color: white;
+      }
       .alternativa_1 {
         color: white;
         background-color: #d03542;
@@ -67,6 +82,7 @@
         padding-right: 132px;
         width: 100%;
         font-size: 16px;
+        cursor: pointer;
       }
       .alternativa_2 {
         color: white;
@@ -79,6 +95,7 @@
         padding-right: 141px;
         width: 100%;
         font-size: 16px;
+        cursor: pointer;
       }
       .alternativa_3 {
         color: white;
@@ -91,6 +108,7 @@
         padding-right: 127px;
         width: 100%;
         font-size: 16px;
+        cursor: pointer;
       }
       .alternativa_4 {
         color: white;
@@ -103,27 +121,60 @@
         padding-right: 136px;
         width: 100%;
         font-size: 16px;
+        cursor: pointer;
       }
-      .correta {
-        color: white;
-        background-color: #11811c;
-        font-family: 'Open Sans', sans-serif;
-        font-size: 20px;
-        font-weight: 800;
+      .resposta {
+        height: 172px;
+        width: 230px;
         margin-left: 45px;
         margin-right: 45px;
         margin-top: 30px;
         display: block;
-        padding-top: 49px;
+      }
+      .resposta_texto1 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0px;
+        /* padding-top: 49px;
+        padding-bottom: 98px; */
+        padding-top: 73px;
+        padding-bottom: 74px;
+        text-align: center;
+      }
+      .resposta_texto2 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0px;
+        /* padding-top: 49px;
+        padding-bottom: 98px; */
+        padding-top: 73px;
+        padding-bottom: 74px;
         padding-left: 12px;
         padding-right: 12px;
-        padding-bottom: 98px;
         text-align: center;
+      }
+      .seguinte {
+        color: #11811c;
+        background-color: white;
+        font-family: 'Open Sans', sans-serif;
+        border: none;
+        margin-top: -100px;
+      }
+      .opacidade {
+        opacity: 0.5;
       }
       .sumir {
         display: none;
       }
       .sumir2 {
+        display: none;
+      }
+      .sumir3 {
+        display: none;
+      }
+      .sumir4 {
         display: none;
       }
     </style>
@@ -132,7 +183,7 @@
     <div class="pagina_1 sumir">
       <img
         class="logo"
-        src="./Kahoot_Logo.svg.png"
+        src="https://i.imgur.com/54i73yb.png"
         alt="Kahoot_Logo"
         height="200"
         width="587"
@@ -143,30 +194,43 @@
       <h2 class="pergunta">Qual animal representa<br />o símbolo da paz?</h2>
       <img
         class="foto"
-        src="./formacao_peca-ao-senhor-paz-esperanca-e-bencaos-para-sua-vida.jpg"
+        src="https://i.imgur.com/9DRLuQR.jpeg"
         alt="mãos_para_cima"
         height="173px"
         width="230"
       />
-      <p class="correta sumir2">Alternativa Correta!</p>
+      <div class="resposta sumir2">
+        <p class="resposta_texto1 sumir3">Alternativa Correta!</p>
+        <p class="resposta_texto2 sumir4">Alternativa Errada!</p>
+        <!-- <button type="button" class="seguinte" onclick="seguinte()">
+          Seguinte
+        </button> -->
+      </div>
       <button type="button" class="alternativa_1" onclick="alternativa_1()">
         Pomba
       </button>
-      <button type="button" class="alternativa_2" onclick="alternativa_2()">
-        Gato
-      </button>
-      <button type="button" class="alternativa_3" onclick="alternativa_3()">
-        Cobra
-      </button>
-      <button type="button" class="alternativa_4" onclick="alternativa_4()">
-        Elefante
-      </button>
+      <div class="blocos">
+        <button type="button" class="alternativa_2" onclick="alternativa_2()">
+          Gato
+        </button>
+        <button type="button" class="alternativa_3" onclick="alternativa_3()">
+          Cobra
+        </button>
+        <button type="button" class="alternativa_4" onclick="alternativa_4()">
+          Elefante
+        </button>
+      </div>
     </div>
     <script>
       let body = document.querySelector('body');
       let pagina_1 = document.querySelector('.pagina_1');
       let pagina_2 = document.querySelector('.pagina_2');
       pagina_1.classList.remove('sumir');
+      let foto = document.querySelector('.foto');
+      let resposta = document.querySelector('.resposta');
+      let resposta_texto1 = document.querySelector('.resposta_texto1');
+      let resposta_texto2 = document.querySelector('.resposta_texto2');
+      let blocos = document.querySelector('.blocos');
 
       let iniciar = () => {
         console.log('chegou aqui');
@@ -179,6 +243,35 @@
 
       let alternativa_1 = () => {
         console.log('alternativa correta');
+        resposta.classList.add('verde');
+        resposta.classList.remove('sumir2');
+        foto.classList.add('sumir2');
+        resposta_texto1.classList.remove('sumir3');
+        blocos.classList.add('opacidade');
+      };
+      let alternativa_2 = () => {
+        console.log('alternativa errada');
+        resposta.classList.add('vermelho');
+        resposta.classList.remove('sumir2');
+        foto.classList.add('sumir2');
+        resposta_texto2.classList.remove('sumir4');
+        blocos.classList.add('opacidade');
+      };
+      let alternativa_3 = () => {
+        console.log('alternativa errada');
+        resposta.classList.add('vermelho');
+        resposta.classList.remove('sumir2');
+        foto.classList.add('sumir2');
+        resposta_texto2.classList.remove('sumir4');
+        blocos.classList.add('opacidade');
+      };
+      let alternativa_4 = () => {
+        console.log('alternativa errada');
+        resposta.classList.add('vermelho');
+        resposta.classList.remove('sumir2');
+        foto.classList.add('sumir2');
+        resposta_texto2.classList.remove('sumir4');
+        blocos.classList.add('opacidade');
       };
     </script>
   </body>
