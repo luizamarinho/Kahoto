@@ -206,33 +206,17 @@
           Seguinte
         </button> -->
       </div>
-      <button
-        type="button"
-        class="alternativa_1 todos"
-        onclick="alternativa_1()"
-      >
+      <button type="button" class="alternativa_1" onclick="alternativa_1()">
         Pomba
       </button>
       <div class="blocos">
-        <button
-          type="button"
-          class="alternativa_2 todos"
-          onclick="alternativa_2()"
-        >
+        <button type="button" class="alternativa_2" onclick="alternativa_2()">
           Gato
         </button>
-        <button
-          type="button"
-          class="alternativa_3 todos"
-          onclick="alternativa_3()"
-        >
+        <button type="button" class="alternativa_3" onclick="alternativa_3()">
           Cobra
         </button>
-        <button
-          type="button"
-          class="alternativa_4 todos"
-          onclick="alternativa_4()"
-        >
+        <button type="button" class="alternativa_4" onclick="alternativa_4()">
           Elefante
         </button>
       </div>
@@ -247,7 +231,6 @@
       let resposta_texto1 = document.querySelector('.resposta_texto1');
       let resposta_texto2 = document.querySelector('.resposta_texto2');
       let blocos = document.querySelector('.blocos');
-      let todos = document.querySelector('.todos');
 
       let iniciar = () => {
         console.log('chegou aqui');
@@ -265,16 +248,14 @@
         foto.classList.add('sumir2');
         resposta_texto1.classList.remove('sumir3');
         blocos.classList.add('opacidade');
-        todos.setAttribute('disabled', '');
       };
       let alternativa_2 = () => {
-        console.log('alternativa errada');
+        console.log('alternativa incorreta');
         resposta.classList.add('vermelho');
         resposta.classList.remove('sumir2');
         foto.classList.add('sumir2');
         resposta_texto2.classList.remove('sumir4');
         blocos.classList.add('opacidade');
-        todos.setAttribute('disabled', '');
       };
       let alternativa_3 = () => {
         console.log('alternativa errada');
@@ -283,7 +264,6 @@
         foto.classList.add('sumir2');
         resposta_texto2.classList.remove('sumir4');
         blocos.classList.add('opacidade');
-        todos.setAttribute('disabled', '');
       };
       let alternativa_4 = () => {
         console.log('alternativa errada');
@@ -292,7 +272,6 @@
         foto.classList.add('sumir2');
         resposta_texto2.classList.remove('sumir4');
         blocos.classList.add('opacidade');
-        todos.setAttribute('disabled', '');
       };
     </script>
   </body>
