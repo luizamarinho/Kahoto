@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .bg1 {
+        /* background-image: url('b_kahoto_telefone.png'); */
+        background-color: #25076b;
+        background-repeat: no-repeat;
+        margin: 0px;
+      }
+      .bg2 {
+        background-color: white;
+        margin: 0px;
+      }
+
+      .logo {
+        width: 271px;
+        height: auto;
+        margin-left: 25px;
+        margin-top: 143px;
+      }
+      .iniciar {
+        width: 199px;
+        height: 45px;
+        font-size: 24px;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 600;
+        background-color: white;
+        border: none;
+        color: #535151;
+        margin-top: 139px;
+        margin-bottom: 144px;
+        margin-left: 61px;
+        margin-right: 61px;
+        padding: 0px;
+        cursor: pointer;
+        display: block;
+        border-radius: 100px;
+      }
+      .pergunta {
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #343434;
+        padding-top: 36px;
+        padding-left: 17px;
+        padding-right: 17px;
+        margin: 0px;
+      }
+      .foto {
+        padding-left: 45px;
+        padding-right: 45px;
+        padding-top: 30px;
+        display: block;
+      }
+      .vermelho {
+        background-color: #d72b2b;
+        color: white;
+      }
+      .verde {
+        background-color: #11811c;
+        color: white;
+      }
+      .alternativa_1 {
+        color: white;
+        background-color: #d03542;
+        border: none;
+        margin-top: 30px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 132px;
+        padding-right: 132px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .alternativa_2 {
+        color: white;
+        background-color: #cf9f36;
+        border: none;
+        margin-top: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 140px;
+        padding-right: 141px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .alternativa_3 {
+        color: white;
+        background-color: #2f69c7;
+        border: none;
+        margin-top: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 126px;
+        padding-right: 127px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .alternativa_4 {
+        color: white;
+        background-color: #468629;
+        border: none;
+        margin-top: 0px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        padding-left: 136px;
+        padding-right: 136px;
+        width: 100%;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      .resposta {
+        height: 172px;
+        width: 230px;
+        margin-left: 45px;
+        margin-right: 45px;
+        margin-top: 30px;
+        display: block;
+      }
+      .resposta_certa {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0px;
+        text-align: center;
+      }
+      .resposta_errada {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0px;
+        text-align: center;
+      }
+      .seguinte {
+        background-color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        border: none;
+        padding-top: 7px;
+        padding-bottom: 6px;
+        padding-left: 33px;
+        padding-right: 33px;
+        margin-top: 23px;
+        margin-left: 47px;
+        margin-right: 47px;
+        border-radius: 30px;
+      }
+      .fonte_verde {
+        color: #11811c;
+      }
+      .fonte_vermelho {
+        color: #d72b2b;
+      }
+      .opacidade {
+        opacity: 0.5;
+      }
+      .sumir {
+        display: none;
+      }
+      .bloco_certo {
+        padding-top: 49px;
+        padding-bottom: 42px;
+      }
+      .bloco_errado {
+        padding-top: 49px;
+        padding-bottom: 42px;
+      }
+    </style>
+  </head>
+  <body class="bg1">
+    <div class="pagina_1 sumir">
+      <img
+        class="logo"
+        src="https://i.imgur.com/54i73yb.png"
+        alt="Kahoot_Logo"
+        height="200"
+        width="587"
+      />
+      <button type="button" onclick="iniciar()" class="iniciar">Iniciar</button>
+    </div>
+    <div class="pagina_2 sumir">
+      <div class="pergunta"></div>
+      <!-- <h2 class="pergunta">Qual animal representa<br />o símbolo da paz?</h2> -->
+      <img
+        class="foto foto_1"
+        src="https://i.imgur.com/9DRLuQR.jpeg"
+        alt="mãos_para_cima"
+        height="173px"
+        width="230"
+      />
+      <img
+        class="foto foto_2 sumir"
+        src="https://i.imgur.com/GiDrhQE.jpeg"
+        alt="sushi"
+        height="173px"
+        width="230"
+      />
+      <div class="resposta sumir">
+        <div class="bloco_certo sumir">
+          <p class="resposta_certa">Alternativa Correta!</p>
+          <button
+            type="button"
+            class="seguinte fonte_verde"
+            onclick="seguinte()"
+          >
+            Seguinte
+          </button>
+        </div>
+        <div class="bloco_errado sumir">
+          <p class="resposta_errada">Alternativa Errada!</p>
+          <button
+            type="button"
+            class="seguinte fonte_vermelho"
+            onclick="seguinte()"
+          >
+            Seguinte
+          </button>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="alternativa_1 todos"
+        onclick="alternativa_1()"
+      >
+        Pomba
+      </button>
+      <div class="blocos">
+        <button
+          type="button"
+          class="alternativa_2 todos"
+          onclick="alternativa_2()"
+        >
+          Gato
+        </button>
+        <button
+          type="button"
+          class="alternativa_3 todos"
+          onclick="alternativa_3()"
+        >
+          Cobra
+        </button>
+        <button
+          type="button"
+          class="alternativa_4 todos"
+          onclick="alternativa_4()"
+        >
+          Elefante
+        </button>
+      </div>
+    </div>
+    <script>
+      let body = document.querySelector('body');
+      let pagina_1 = document.querySelector('.pagina_1');
+      let pagina_2 = document.querySelector('.pagina_2');
+
+      let foto = document.querySelector('.foto');
+      let foto_1 = document.querySelector('.foto_1');
+      let foto_2 = document.querySelector('.foto_2');
+      let resposta = document.querySelector('.resposta');
+      let resposta_certa = document.querySelector('.resposta_certa');
+      let resposta_errada = document.querySelector('.resposta_errada');
+      let blocos = document.querySelector('.blocos');
+      let todos = document.querySelector('.todos');
+      let pergunta = document.querySelector('.pergunta');
+      let bloco_certo = document.querySelector('.bloco_certo');
+      let bloco_errado = document.querySelector('.bloco_errado');
+
+      pagina_1.classList.remove('sumir');
+
+      let perguntas = [
+        'Qual animal representa o símbolo da paz?',
+        'O sushi é uma comida original de qual país?',
+        'Qual empresa criou o iPhone?',
+        'Quantos dias tem um ano bissexto?',
+        'Qual a cor da caixa-preta do avião?',
+      ];
+
+      let indice_p = 0;
+
+      let iniciar = () => {
+        pagina_1.classList.add('sumir');
+        body.classList.add('bg2');
+        body.classList.remove('bg1');
+        pagina_2.classList.remove('sumir');
+        pagina_1.classList.add('sumir');
+        pergunta.innerHTML = perguntas[indice_p];
+      };
+
+      let seguinte = () => {
+        console.log('chegou aqui');
+        indice_p += 1;
+        pergunta.innerHTML = perguntas[indice_p];
+        bloco_certo.classList.add('sumir');
+        foto_1.classList.add('sumir');
+        foto_2.classList.remove('sumir');
+        resposta.classList.add('sumir');
+      };
+
+      let alternativa_1 = () => {
+        console.log('alternativa correta');
+        resposta.classList.add('verde');
+        resposta.classList.remove('sumir');
+        foto.classList.add('sumir');
+        bloco_certo.classList.remove('sumir');
+        blocos.classList.add('opacidade');
+        todos.setAttribute('disabled', '');
+      };
+      let alternativa_2 = () => {
+        console.log('alternativa errada');
+        resposta.classList.add('vermelho');
+        resposta.classList.remove('sumir');
+        foto.classList.add('sumir');
+        bloco_errado.classList.remove('sumir');
+        blocos.classList.add('opacidade');
+        todos.setAttribute('disabled', '');
+      };
+      let alternativa_3 = () => {
+        console.log('alternativa errada');
+        resposta.classList.add('vermelho');
+        resposta.classList.remove('sumir');
+        foto.classList.add('sumir');
+        bloco_errado.classList.remove('sumir');
+        blocos.classList.add('opacidade');
+        todos.setAttribute('disabled', '');
+      };
+      let alternativa_4 = () => {
+        console.log('alternativa errada');
+        resposta.classList.add('vermelho');
+        resposta.classList.remove('sumir');
+        foto.classList.add('sumir');
+        bloco_errado.classList.remove('sumir');
+        blocos.classList.add('opacidade');
+        todos.setAttribute('disabled', '');
+      };
+    </script>
+  </body>
+</html>
