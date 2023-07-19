@@ -234,33 +234,25 @@
       </div>
       <button
         type="button"
-        class="alternativa_1 todos"
+        class="alternativa_1 botao_1 todos"
         onclick="alternativa_1()"
-      >
-        Pomba
-      </button>
+      ></button>
       <div class="blocos">
         <button
           type="button"
-          class="alternativa_2 todos"
+          class="alternativa_2 botao_2 todos"
           onclick="alternativa_2()"
-        >
-          Gato
-        </button>
+        ></button>
         <button
           type="button"
-          class="alternativa_3 todos"
+          class="alternativa_3 botao_3 todos"
           onclick="alternativa_3()"
-        >
-          Cobra
-        </button>
+        ></button>
         <button
           type="button"
-          class="alternativa_4 todos"
+          class="alternativa_4 botao_4 todos"
           onclick="alternativa_4()"
-        >
-          Elefante
-        </button>
+        ></button>
       </div>
     </div>
     <script>
@@ -279,6 +271,10 @@
       let pergunta = document.querySelector('.pergunta');
       let bloco_certo = document.querySelector('.bloco_certo');
       let bloco_errado = document.querySelector('.bloco_errado');
+      let botao_1 = document.querySelector('.botao_1');
+      let botao_2 = document.querySelector('.botao_2');
+      let botao_3 = document.querySelector('.botao_3');
+      let botao_4 = document.querySelector('.botao_4');
 
       pagina_1.classList.remove('sumir');
 
@@ -290,6 +286,41 @@
         'Qual a cor da caixa-preta do avião?',
       ];
 
+      //FIXME: resolver botões e alternativas
+
+      let botoes = [
+        {
+          texto: 'Qual animal representa o símbolo da paz?',
+          r_certa: 'Pomba',
+          r_erradas: ['Gato', 'Elefante', 'Cobra'],
+          alternativas: ['Pomba', 'Gato', 'Elefante', 'Cobra'],
+        },
+        {
+          texto: 'O sushi é uma comida original de qual país?',
+          r_certa: 'Japão',
+          r_erradas: ['Tailândia', 'China', 'Coreia do Sul'],
+          alternativas: ['Tailândia', 'China', 'Japão', 'Coreia do Sul'],
+        },
+        {
+          texto: 'Qual empresa criou o iPhone?',
+          r_certa: 'Apple',
+          r_erradas: ['Google', 'Amazon', 'Microsoft'],
+          alternativas: ['Google', 'Amazon', 'Microsoft', 'Apple'],
+        },
+        {
+          texto: 'Quantos dias tem um ano bissexto?',
+          r_certa: '366 dias',
+          r_erradas: ['364 dias', '356 dias', '376 dias'],
+          alternativas: ['364 dias', '356 dias', '366 dias', '376 dias'],
+        },
+        {
+          texto: 'Qual a cor da caixa-preta do avião?',
+          r_certa: 'Laranja',
+          r_erradas: ['Azul', 'Branco', 'Preto'],
+          alternativas: ['Azul', 'Laranja', 'Branco', 'Preto'],
+        },
+      ];
+
       let indice_p = 0;
 
       let iniciar = () => {
@@ -298,13 +329,21 @@
         body.classList.remove('bg1');
         pagina_2.classList.remove('sumir');
         pagina_1.classList.add('sumir');
-        pergunta.innerHTML = perguntas[indice_p];
+        pergunta.innerHTML = botoes[indice_p].texto;
+        botao_1.innerHTML = botoes[indice_p].alternativas[0];
+        botao_2.innerHTML = botoes[indice_p].alternativas[1];
+        botao_3.innerHTML = botoes[indice_p].alternativas[2];
+        botao_4.innerHTML = botoes[indice_p].alternativas[3];
       };
 
       let seguinte = () => {
         console.log('chegou aqui');
         indice_p += 1;
-        pergunta.innerHTML = perguntas[indice_p];
+        pergunta.innerHTML = botoes[indice_p].texto;
+        botao_1.innerHTML = botoes[indice_p].alternativas[0];
+        botao_2.innerHTML = botoes[indice_p].alternativas[1];
+        botao_3.innerHTML = botoes[indice_p].alternativas[2];
+        botao_4.innerHTML = botoes[indice_p].alternativas[3];
         bloco_certo.classList.add('sumir');
         foto_1.classList.add('sumir');
         foto_2.classList.remove('sumir');
