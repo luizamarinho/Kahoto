@@ -199,17 +199,38 @@
       <img
         class="foto foto_1"
         src="https://i.imgur.com/9DRLuQR.jpeg"
-        alt="mãos_para_cima"
+        alt="Mãos_para_cima"
+        height="173px"
+        width="230"
+      />
+      <!-- <img
+        class="foto foto_2 sumir"
+        src="https://i.imgur.com/GiDrhQE.jpeg"
+        alt="Sushi"
         height="173px"
         width="230"
       />
       <img
-        class="foto foto_2 sumir"
-        src="https://i.imgur.com/GiDrhQE.jpeg"
-        alt="sushi"
+        class="foto foto_3 sumir"
+        src="https://i.imgur.com/S8Tflln.jpeg"
+        alt="iPhone"
         height="173px"
         width="230"
       />
+      <img
+        class="foto foto_4 sumir"
+        src="https://i.imgur.com/baZifzW.png"
+        alt="Calendário"
+        height="173px"
+        width="230"
+      />
+      <img
+        class="foto foto_5 sumir"
+        src="https://i.imgur.com/4Ul5304.png"
+        alt="Avião"
+        height="173px"
+        width="230" -->
+      <!-- /> -->
       <div class="resposta sumir">
         <div class="bloco_certo sumir">
           <p class="resposta_certa">Alternativa Correta!</p>
@@ -294,30 +315,35 @@
           r_certa: 'Pomba',
           r_erradas: ['Gato', 'Elefante', 'Cobra'],
           alternativas: ['Pomba', 'Gato', 'Elefante', 'Cobra'],
+          imagem: 'https://i.imgur.com/9DRLuQR.jpeg',
         },
         {
           texto: 'O sushi é uma comida original de qual país?',
           r_certa: 'Japão',
           r_erradas: ['Tailândia', 'China', 'Coreia do Sul'],
           alternativas: ['Tailândia', 'China', 'Japão', 'Coreia do Sul'],
+          imagem: 'https://i.imgur.com/GiDrhQE.jpeg',
         },
         {
           texto: 'Qual empresa criou o iPhone?',
           r_certa: 'Apple',
           r_erradas: ['Google', 'Amazon', 'Microsoft'],
           alternativas: ['Google', 'Amazon', 'Microsoft', 'Apple'],
+          imagem: 'https://i.imgur.com/S8Tflln.jpeg',
         },
         {
           texto: 'Quantos dias tem um ano bissexto?',
           r_certa: '366 dias',
           r_erradas: ['364 dias', '356 dias', '376 dias'],
           alternativas: ['364 dias', '356 dias', '366 dias', '376 dias'],
+          imagem: 'https://i.imgur.com/baZifzW.png',
         },
         {
           texto: 'Qual a cor da caixa-preta do avião?',
           r_certa: 'Laranja',
           r_erradas: ['Azul', 'Branco', 'Preto'],
           alternativas: ['Azul', 'Laranja', 'Branco', 'Preto'],
+          imagem: 'https://i.imgur.com/4Ul5304.png',
         },
       ];
 
@@ -348,6 +374,17 @@
         foto_1.classList.add('sumir');
         foto_2.classList.remove('sumir');
         resposta.classList.add('sumir');
+        reiniciar();
+      };
+
+      let reiniciar = () => {
+        resposta.classList.remove('verde');
+        resposta.classList.remove('vermelho');
+        resposta.classList.add('sumir');
+        // foto.classList.remove('sumir');
+        bloco_certo.classList.add('sumir');
+        blocos.classList.remove('opacidade');
+        todos.removeAttribute('disabled', '');
       };
 
       let alternativa_1 = () => {
