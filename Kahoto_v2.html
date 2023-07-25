@@ -228,22 +228,22 @@
       <button
         type="button"
         class="alternativa_1 botao_1 todos"
-        onclick="alternativa_1()"
+        onclick="alternativa(0)"
       ></button>
       <button
         type="button"
         class="alternativa_2 botao_2 todos"
-        onclick="alternativa_2()"
+        onclick="alternativa(1)"
       ></button>
       <button
         type="button"
         class="alternativa_3 botao_3 todos"
-        onclick="alternativa_3()"
+        onclick="alternativa(2)"
       ></button>
       <button
         type="button"
         class="alternativa_4 botao_4 todos"
-        onclick="alternativa_4()"
+        onclick="alternativa(3)"
       ></button>
     </div>
     <script>
@@ -347,50 +347,94 @@
         reiniciar();
       };
 
-      let alternativa_1 = () => {
-        console.log('alternativa correta');
-        resposta.classList.add('verde');
-        resposta.classList.remove('sumir');
-        foto.classList.add('sumir');
-        bloco_certo.classList.remove('sumir');
-        botao_2.classList.add('opacidade');
-        botao_3.classList.add('opacidade');
-        botao_4.classList.add('opacidade');
-        todos.setAttribute('disabled', '');
+      let alternativa = (clique) => {
+        if (clique === 0) {
+          console.log('alternativa correta');
+          resposta.classList.add('verde');
+          resposta.classList.remove('sumir');
+          foto.classList.add('sumir');
+          bloco_certo.classList.remove('sumir');
+          botao_2.classList.add('opacidade');
+          botao_3.classList.add('opacidade');
+          botao_4.classList.add('opacidade');
+          todos.setAttribute('disabled', '');
+        } else if (clique === 1) {
+          console.log('alternativa errada');
+          resposta.classList.add('vermelho');
+          resposta.classList.remove('sumir');
+          foto.classList.add('sumir');
+          bloco_certo.classList.remove('sumir');
+          botao_2.classList.add('opacidade');
+          botao_3.classList.add('opacidade');
+          botao_4.classList.add('opacidade');
+          todos.setAttribute('disabled', '');
+        } else if (clique === 2) {
+          console.log('alternativa errada');
+          resposta.classList.add('vermelho');
+          resposta.classList.remove('sumir');
+          foto.classList.add('sumir');
+          bloco_certo.classList.remove('sumir');
+          botao_2.classList.add('opacidade');
+          botao_3.classList.add('opacidade');
+          botao_4.classList.add('opacidade');
+          todos.setAttribute('disabled', '');
+        } else if (clique === 3) {
+          console.log('alternativa errada');
+          resposta.classList.add('vermelho');
+          resposta.classList.remove('sumir');
+          foto.classList.add('sumir');
+          bloco_certo.classList.remove('sumir');
+          botao_2.classList.add('opacidade');
+          botao_3.classList.add('opacidade');
+          botao_4.classList.add('opacidade');
+          todos.setAttribute('disabled', '');
+        }
       };
-      let alternativa_2 = () => {
-        console.log('alternativa errada');
-        resposta.classList.add('vermelho');
-        resposta.classList.remove('sumir');
-        foto.classList.add('sumir');
-        bloco_errado.classList.remove('sumir');
-        botao_2.classList.add('opacidade');
-        botao_3.classList.add('opacidade');
-        botao_4.classList.add('opacidade');
-        todos.setAttribute('disabled', '');
-      };
-      let alternativa_3 = () => {
-        console.log('alternativa errada');
-        resposta.classList.add('vermelho');
-        resposta.classList.remove('sumir');
-        foto.classList.add('sumir');
-        bloco_errado.classList.remove('sumir');
-        botao_2.classList.add('opacidade');
-        botao_3.classList.add('opacidade');
-        botao_4.classList.add('opacidade');
-        todos.setAttribute('disabled', '');
-      };
-      let alternativa_4 = () => {
-        console.log('alternativa errada');
-        resposta.classList.add('vermelho');
-        resposta.classList.remove('sumir');
-        foto.classList.add('sumir');
-        bloco_errado.classList.remove('sumir');
-        botao_2.classList.add('opacidade');
-        botao_3.classList.add('opacidade');
-        botao_4.classList.add('opacidade');
-        todos.setAttribute('disabled', '');
-      };
+
+      // let alternativa_1 = () => {
+      //   console.log('alternativa correta');
+      //   resposta.classList.add('verde');
+      //   resposta.classList.remove('sumir');
+      //   foto.classList.add('sumir');
+      //   bloco_certo.classList.remove('sumir');
+      //   botao_2.classList.add('opacidade');
+      //   botao_3.classList.add('opacidade');
+      //   botao_4.classList.add('opacidade');
+      //   todos.setAttribute('disabled', '');
+      // };
+      // let alternativa_2 = () => {
+      //   console.log('alternativa errada');
+      //   resposta.classList.add('vermelho');
+      //   resposta.classList.remove('sumir');
+      //   foto.classList.add('sumir');
+      //   bloco_errado.classList.remove('sumir');
+      //   botao_2.classList.add('opacidade');
+      //   botao_3.classList.add('opacidade');
+      //   botao_4.classList.add('opacidade');
+      //   todos.setAttribute('disabled', '');
+      // };
+      // let alternativa_3 = () => {
+      //   console.log('alternativa errada');
+      //   resposta.classList.add('vermelho');
+      //   resposta.classList.remove('sumir');
+      //   foto.classList.add('sumir');
+      //   bloco_errado.classList.remove('sumir');
+      //   botao_2.classList.add('opacidade');
+      //   botao_3.classList.add('opacidade');
+      //   botao_4.classList.add('opacidade');
+      //   todos.setAttribute('disabled', '');
+      // };
+      // let alternativa_4 = () => {
+      //   console.log('alternativa errada');
+      //   resposta.classList.add('vermelho');
+      //   resposta.classList.remove('sumir');
+      //   foto.classList.add('sumir');
+      //   bloco_errado.classList.remove('sumir');
+      //   botao_2.classList.add('opacidade');
+      //   botao_3.classList.add('opacidade');
+      //   botao_4.classList.add('opacidade');
+      //   todos.setAttribute('disabled', '');
+      // };
     </script>
   </body>
 </html>
