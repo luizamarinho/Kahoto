@@ -265,6 +265,8 @@
       let botao_3 = document.querySelector('.botao_3');
       let botao_4 = document.querySelector('.botao_4');
 
+      let botoes = [botao_1, botao_2, botao_3, botao_4];
+
       pagina_1.classList.remove('sumir');
 
       let pagina = [
@@ -348,7 +350,8 @@
       };
 
       let alternativa = (clique) => {
-        let acertou = clique === 0;
+        let indice_certo = 0;
+        let acertou = clique === indice_certo;
         if (acertou) {
           console.log('alternativa correta');
           resposta.classList.add('verde');
@@ -358,9 +361,14 @@
           resposta.classList.add('vermelho');
           bloco_errado.classList.remove('sumir');
         }
-        botao_2.classList.add('opacidade');
-        botao_3.classList.add('opacidade');
-        botao_4.classList.add('opacidade');
+        let contador = 0;
+        while (contador < botoes.length) {
+          console.log(contador);
+          if (contador !== indice_certo) {
+            botoes[contador].classList.add('opacidade');
+          }
+          contador += 1;
+        }
         todos.setAttribute('disabled', '');
         resposta.classList.remove('sumir');
         foto.classList.add('sumir');
