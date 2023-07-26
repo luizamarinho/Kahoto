@@ -329,19 +329,20 @@
           botoes[contador].classList.remove('opacidade');
           contador += 1;
         }
+        foto_1.classList.remove('sumir');
       };
 
       let seguinte = () => {
         console.log('chegou aqui');
         indice_p += 1;
+        foto.setAttribute('src', pagina[indice_p].imagem);
         pergunta.innerHTML = pagina[indice_p].texto;
-        foto.innerHTML = pagina[indice_p].imagem;
         botao_1.innerHTML = pagina[indice_p].alternativas[0];
         botao_2.innerHTML = pagina[indice_p].alternativas[1];
         botao_3.innerHTML = pagina[indice_p].alternativas[2];
         botao_4.innerHTML = pagina[indice_p].alternativas[3];
         bloco_certo.classList.add('sumir');
-        foto_1.classList.add('sumir');
+        // foto_1.classList.add('sumir');
         resposta.classList.add('sumir');
         reiniciar();
       };
