@@ -272,36 +272,31 @@
       let pagina = [
         {
           texto: 'Qual animal representa o símbolo da paz?',
-          r_certa: 'Pomba',
-          r_erradas: ['Gato', 'Elefante', 'Cobra'],
+          r_certa: 0,
           alternativas: ['Pomba', 'Gato', 'Elefante', 'Cobra'],
           imagem: 'https://i.imgur.com/9DRLuQR.jpeg',
         },
         {
           texto: 'O sushi é uma comida original de qual país?',
-          r_certa: 'Japão',
-          r_erradas: ['Tailândia', 'China', 'Coreia do Sul'],
+          r_certa: 2,
           alternativas: ['Tailândia', 'China', 'Japão', 'Coreia do Sul'],
           imagem: 'https://i.imgur.com/GiDrhQE.jpeg',
         },
         {
           texto: 'Qual empresa criou o iPhone?',
-          r_certa: 'Apple',
-          r_erradas: ['Google', 'Amazon', 'Microsoft'],
+          r_certa: 3,
           alternativas: ['Google', 'Amazon', 'Microsoft', 'Apple'],
           imagem: 'https://i.imgur.com/S8Tflln.jpeg',
         },
         {
           texto: 'Quantos dias tem um ano bissexto?',
-          r_certa: '366 dias',
-          r_erradas: ['364 dias', '356 dias', '376 dias'],
+          r_certa: 2,
           alternativas: ['364 dias', '356 dias', '366 dias', '376 dias'],
           imagem: 'https://i.imgur.com/baZifzW.png',
         },
         {
           texto: 'Qual a cor da caixa-preta do avião?',
-          r_certa: 'Laranja',
-          r_erradas: ['Azul', 'Branco', 'Preto'],
+          r_certa: 1,
           alternativas: ['Azul', 'Laranja', 'Branco', 'Preto'],
           imagem: 'https://i.imgur.com/4Ul5304.png',
         },
@@ -329,9 +324,11 @@
         resposta.classList.add('sumir');
         bloco_certo.classList.add('sumir');
         todos.removeAttribute('disabled', '');
-        botao_2.classList.remove('opacidade');
-        botao_3.classList.remove('opacidade');
-        botao_4.classList.remove('opacidade');
+        let contador = 0;
+        while (contador < botoes.length) {
+          botoes[contador].classList.remove('opacidade');
+          contador += 1;
+        }
       };
 
       let seguinte = () => {
@@ -350,7 +347,7 @@
       };
 
       let alternativa = (clique) => {
-        let indice_certo = 0;
+        let indice_certo = pagina[indice_p].r_certa;
         let acertou = clique === indice_certo;
         if (acertou) {
           console.log('alternativa correta');
@@ -363,7 +360,6 @@
         }
         let contador = 0;
         while (contador < botoes.length) {
-          console.log(contador);
           if (contador !== indice_certo) {
             botoes[contador].classList.add('opacidade');
           }
