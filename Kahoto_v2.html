@@ -267,7 +267,7 @@
 
       pagina_1.classList.remove('sumir');
 
-      let botoes = [
+      let pagina = [
         {
           texto: 'Qual animal representa o símbolo da paz?',
           r_certa: 'Pomba',
@@ -313,12 +313,12 @@
         body.classList.remove('bg1');
         pagina_2.classList.remove('sumir');
         pagina_1.classList.add('sumir');
-        pergunta.innerHTML = botoes[indice_p].texto;
-        foto.innerHTML = botoes[indice_p].imagem;
-        botao_1.innerHTML = botoes[indice_p].alternativas[0];
-        botao_2.innerHTML = botoes[indice_p].alternativas[1];
-        botao_3.innerHTML = botoes[indice_p].alternativas[2];
-        botao_4.innerHTML = botoes[indice_p].alternativas[3];
+        pergunta.innerHTML = pagina[indice_p].texto;
+        foto.innerHTML = pagina[indice_p].imagem;
+        botao_1.innerHTML = pagina[indice_p].alternativas[0];
+        botao_2.innerHTML = pagina[indice_p].alternativas[1];
+        botao_3.innerHTML = pagina[indice_p].alternativas[2];
+        botao_4.innerHTML = pagina[indice_p].alternativas[3];
       };
 
       let reiniciar = () => {
@@ -335,12 +335,12 @@
       let seguinte = () => {
         console.log('chegou aqui');
         indice_p += 1;
-        pergunta.innerHTML = botoes[indice_p].texto;
-        foto.innerHTML = botoes[indice_p].imagem;
-        botao_1.innerHTML = botoes[indice_p].alternativas[0];
-        botao_2.innerHTML = botoes[indice_p].alternativas[1];
-        botao_3.innerHTML = botoes[indice_p].alternativas[2];
-        botao_4.innerHTML = botoes[indice_p].alternativas[3];
+        pergunta.innerHTML = pagina[indice_p].texto;
+        foto.innerHTML = pagina[indice_p].imagem;
+        botao_1.innerHTML = pagina[indice_p].alternativas[0];
+        botao_2.innerHTML = pagina[indice_p].alternativas[1];
+        botao_3.innerHTML = pagina[indice_p].alternativas[2];
+        botao_4.innerHTML = pagina[indice_p].alternativas[3];
         bloco_certo.classList.add('sumir');
         foto_1.classList.add('sumir');
         resposta.classList.add('sumir');
@@ -348,47 +348,22 @@
       };
 
       let alternativa = (clique) => {
-        if (clique === 0) {
+        let acertou = clique === 0;
+        if (acertou) {
           console.log('alternativa correta');
           resposta.classList.add('verde');
-          resposta.classList.remove('sumir');
-          foto.classList.add('sumir');
           bloco_certo.classList.remove('sumir');
-          botao_2.classList.add('opacidade');
-          botao_3.classList.add('opacidade');
-          botao_4.classList.add('opacidade');
-          todos.setAttribute('disabled', '');
-        } else if (clique === 1) {
+        } else {
           console.log('alternativa errada');
           resposta.classList.add('vermelho');
-          resposta.classList.remove('sumir');
-          foto.classList.add('sumir');
-          bloco_certo.classList.remove('sumir');
-          botao_2.classList.add('opacidade');
-          botao_3.classList.add('opacidade');
-          botao_4.classList.add('opacidade');
-          todos.setAttribute('disabled', '');
-        } else if (clique === 2) {
-          console.log('alternativa errada');
-          resposta.classList.add('vermelho');
-          resposta.classList.remove('sumir');
-          foto.classList.add('sumir');
-          bloco_certo.classList.remove('sumir');
-          botao_2.classList.add('opacidade');
-          botao_3.classList.add('opacidade');
-          botao_4.classList.add('opacidade');
-          todos.setAttribute('disabled', '');
-        } else if (clique === 3) {
-          console.log('alternativa errada');
-          resposta.classList.add('vermelho');
-          resposta.classList.remove('sumir');
-          foto.classList.add('sumir');
-          bloco_certo.classList.remove('sumir');
-          botao_2.classList.add('opacidade');
-          botao_3.classList.add('opacidade');
-          botao_4.classList.add('opacidade');
-          todos.setAttribute('disabled', '');
+          bloco_errado.classList.remove('sumir');
         }
+        botao_2.classList.add('opacidade');
+        botao_3.classList.add('opacidade');
+        botao_4.classList.add('opacidade');
+        todos.setAttribute('disabled', '');
+        resposta.classList.remove('sumir');
+        foto.classList.add('sumir');
       };
     </script>
   </body>
