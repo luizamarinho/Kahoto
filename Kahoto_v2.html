@@ -323,6 +323,7 @@
         resposta.classList.remove('vermelho');
         resposta.classList.add('sumir');
         bloco_certo.classList.add('sumir');
+        bloco_errado.classList.add('sumir');
         todos.removeAttribute('disabled', '');
         let contador = 0;
         while (contador < botoes.length) {
@@ -341,9 +342,6 @@
         botao_2.innerHTML = pagina[indice_p].alternativas[1];
         botao_3.innerHTML = pagina[indice_p].alternativas[2];
         botao_4.innerHTML = pagina[indice_p].alternativas[3];
-        bloco_certo.classList.add('sumir');
-        // foto_1.classList.add('sumir');
-        resposta.classList.add('sumir');
         reiniciar();
       };
 
