@@ -59,7 +59,7 @@
       .foto {
         padding-left: 45px;
         padding-right: 45px;
-        padding-top: 30px;
+        /* padding-top: 30px; */
         display: block;
       }
       .vermelho {
@@ -179,6 +179,26 @@
         padding-top: 49px;
         padding-bottom: 42px;
       }
+      .timer {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: #46178f;
+        color: white;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 6px;
+        margin-left: 136px;
+        margin-bottom: -24px;
+        border: 1px solid white;
+        z-index: 1;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     </style>
   </head>
   <body class="bg1">
@@ -196,6 +216,7 @@
       <div class="pergunta"></div>
       <!-- //FIXME: essa div é responsável por adicionar a classe "pergunta" contendo
       o texto. -->
+      <div class="timer">30</div>
       <img
         class="foto foto_1"
         src="https://i.imgur.com/9DRLuQR.jpeg"
@@ -264,6 +285,10 @@
       let botao_2 = document.querySelector('.botao_2');
       let botao_3 = document.querySelector('.botao_3');
       let botao_4 = document.querySelector('.botao_4');
+      let timer = document.querySelector('.timer');
+
+      let segundos = 30;
+      let identificador = null;
 
       let botoes = [botao_1, botao_2, botao_3, botao_4];
 
@@ -304,18 +329,14 @@
 
       let indice_p = 0;
 
-      let iniciar = () => {
-        pagina_1.classList.add('sumir');
-        body.classList.add('bg2');
-        body.classList.remove('bg1');
-        pagina_2.classList.remove('sumir');
-        pagina_1.classList.add('sumir');
-        pergunta.innerHTML = pagina[indice_p].texto;
-        foto.innerHTML = pagina[indice_p].imagem;
-        botao_1.innerHTML = pagina[indice_p].alternativas[0];
-        botao_2.innerHTML = pagina[indice_p].alternativas[1];
-        botao_3.innerHTML = pagina[indice_p].alternativas[2];
-        botao_4.innerHTML = pagina[indice_p].alternativas[3];
+      let f_timer = () => {
+        segundos = segundos - 1;
+        timer.innerHTML = segundos + '';
+        console.log(segundos);
+        if (segundos <= 0) {
+          clearInterval(identificador);
+          // timer.classList.add('acabou');
+        }
       };
 
       let reiniciar = () => {
@@ -331,6 +352,27 @@
           contador += 1;
         }
         foto_1.classList.remove('sumir');
+        if (identificador != null) {
+          clearInterval(identificador);
+        }
+        identificador = setInterval(f_timer, 1000);
+        segundos = 30;
+        timer.innerHTML = segundos + '';
+      };
+
+      let iniciar = () => {
+        pagina_1.classList.add('sumir');
+        body.classList.add('bg2');
+        body.classList.remove('bg1');
+        pagina_2.classList.remove('sumir');
+        pagina_1.classList.add('sumir');
+        pergunta.innerHTML = pagina[indice_p].texto;
+        foto.innerHTML = pagina[indice_p].imagem;
+        botao_1.innerHTML = pagina[indice_p].alternativas[0];
+        botao_2.innerHTML = pagina[indice_p].alternativas[1];
+        botao_3.innerHTML = pagina[indice_p].alternativas[2];
+        botao_4.innerHTML = pagina[indice_p].alternativas[3];
+        reiniciar();
       };
 
       let seguinte = () => {
