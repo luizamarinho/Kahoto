@@ -70,6 +70,10 @@
         background-color: #11811c;
         color: white;
       }
+      .laranja {
+        background-color: #ef7d14;
+        color: white;
+      }
       .alternativa_1 {
         color: white;
         background-color: #d03542;
@@ -144,6 +148,13 @@
         margin: 0px;
         text-align: center;
       }
+      .resposta_tempo {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 20px;
+        font-weight: 800;
+        margin: 0px;
+        text-align: center;
+      }
       .seguinte {
         background-color: white;
         font-family: 'Open Sans', sans-serif;
@@ -165,17 +176,21 @@
       .fonte_vermelho {
         color: #d72b2b;
       }
+      .fonte_laranja {
+        color: #ef7d14;
+      }
       .opacidade {
         opacity: 0.5;
-      }
-      .sumir {
-        display: none;
       }
       .bloco_certo {
         padding-top: 49px;
         padding-bottom: 42px;
       }
       .bloco_errado {
+        padding-top: 49px;
+        padding-bottom: 42px;
+      }
+      .bloco_tempo {
         padding-top: 49px;
         padding-bottom: 42px;
       }
@@ -198,6 +213,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+      }
+      .sumir {
+        display: none;
       }
     </style>
   </head>
@@ -245,6 +263,16 @@
             Seguinte
           </button>
         </div>
+        <div class="bloco_tempo sumir">
+          <p class="resposta_tempo">Seu tempo acabou!</p>
+          <button
+            type="button"
+            class="seguinte fonte_laranja"
+            onclick="seguinte()"
+          >
+            Seguinte
+          </button>
+        </div>
       </div>
       <button
         type="button"
@@ -276,11 +304,13 @@
       let resposta = document.querySelector('.resposta');
       let resposta_certa = document.querySelector('.resposta_certa');
       let resposta_errada = document.querySelector('.resposta_errada');
+      let resposta_tempo = document.querySelector('.resposta_tempo');
       let blocos = document.querySelector('.blocos');
       let todos = document.querySelector('.todos');
       let pergunta = document.querySelector('.pergunta');
       let bloco_certo = document.querySelector('.bloco_certo');
       let bloco_errado = document.querySelector('.bloco_errado');
+      let bloco_tempo = document.querySelector('.bloco_tempo');
       let botao_1 = document.querySelector('.botao_1');
       let botao_2 = document.querySelector('.botao_2');
       let botao_3 = document.querySelector('.botao_3');
@@ -335,7 +365,13 @@
         console.log(segundos);
         if (segundos <= 0) {
           clearInterval(identificador);
-          // timer.classList.add('acabou');
+          console.log('seu tempo acabou');
+          timer.classList.add('sumir');
+          foto.classList.add('sumir');
+          resposta.classList.remove('sumir');
+          resposta.classList.add('laranja');
+          bloco_tempo.classList.remove('sumir');
+          // todos.setAttribute('disabled', '');
         }
       };
 
@@ -352,6 +388,7 @@
           contador += 1;
         }
         foto_1.classList.remove('sumir');
+        timer.classList.remove('sumir');
         if (identificador != null) {
           clearInterval(identificador);
         }
@@ -384,6 +421,7 @@
         botao_2.innerHTML = pagina[indice_p].alternativas[1];
         botao_3.innerHTML = pagina[indice_p].alternativas[2];
         botao_4.innerHTML = pagina[indice_p].alternativas[3];
+
         reiniciar();
       };
 
@@ -409,6 +447,8 @@
         todos.setAttribute('disabled', '');
         resposta.classList.remove('sumir');
         foto.classList.add('sumir');
+        clearInterval(identificador);
+        timer.classList.add('sumir');
       };
     </script>
   </body>
