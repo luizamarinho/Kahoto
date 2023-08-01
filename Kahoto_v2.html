@@ -276,22 +276,22 @@
       </div>
       <button
         type="button"
-        class="alternativa_1 botao_1 todos"
+        class="alternativa_1 botao_1"
         onclick="alternativa(0)"
       ></button>
       <button
         type="button"
-        class="alternativa_2 botao_2 todos"
+        class="alternativa_2 botao_2"
         onclick="alternativa(1)"
       ></button>
       <button
         type="button"
-        class="alternativa_3 botao_3 todos"
+        class="alternativa_3 botao_3"
         onclick="alternativa(2)"
       ></button>
       <button
         type="button"
-        class="alternativa_4 botao_4 todos"
+        class="alternativa_4 botao_4"
         onclick="alternativa(3)"
       ></button>
     </div>
@@ -306,7 +306,6 @@
       let resposta_errada = document.querySelector('.resposta_errada');
       let resposta_tempo = document.querySelector('.resposta_tempo');
       let blocos = document.querySelector('.blocos');
-      let todos = document.querySelector('.todos');
       let pergunta = document.querySelector('.pergunta');
       let bloco_certo = document.querySelector('.bloco_certo');
       let bloco_errado = document.querySelector('.bloco_errado');
@@ -371,7 +370,6 @@
           resposta.classList.remove('sumir');
           resposta.classList.add('laranja');
           bloco_tempo.classList.remove('sumir');
-          // todos.setAttribute('disabled', '');
         }
       };
 
@@ -381,10 +379,10 @@
         resposta.classList.add('sumir');
         bloco_certo.classList.add('sumir');
         bloco_errado.classList.add('sumir');
-        todos.removeAttribute('disabled', '');
         let contador = 0;
         while (contador < botoes.length) {
           botoes[contador].classList.remove('opacidade');
+          botoes[contador].removeAttribute('disabled', '');
           contador += 1;
         }
         foto_1.classList.remove('sumir');
@@ -442,9 +440,9 @@
           if (contador !== indice_certo) {
             botoes[contador].classList.add('opacidade');
           }
+          botoes[contador].setAttribute('disabled', '');
           contador += 1;
         }
-        todos.setAttribute('disabled', '');
         resposta.classList.remove('sumir');
         foto.classList.add('sumir');
         clearInterval(identificador);
