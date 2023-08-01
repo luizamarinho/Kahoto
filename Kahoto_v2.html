@@ -358,7 +358,19 @@
 
       let indice_p = 0;
 
+      let travar_botoes = (parametro) => {
+        let contador = 0;
+        while (contador < botoes.length) {
+          if (contador !== parametro) {
+            botoes[contador].classList.add('opacidade');
+          }
+          botoes[contador].setAttribute('disabled', '');
+          contador += 1;
+        }
+      };
+
       let f_timer = () => {
+        let indice_certo = pagina[indice_p].r_certa;
         segundos = segundos - 1;
         timer.innerHTML = segundos + '';
         console.log(segundos);
@@ -370,6 +382,7 @@
           resposta.classList.remove('sumir');
           resposta.classList.add('laranja');
           bloco_tempo.classList.remove('sumir');
+          travar_botoes(indice_certo);
         }
       };
 
@@ -435,14 +448,7 @@
           resposta.classList.add('vermelho');
           bloco_errado.classList.remove('sumir');
         }
-        let contador = 0;
-        while (contador < botoes.length) {
-          if (contador !== indice_certo) {
-            botoes[contador].classList.add('opacidade');
-          }
-          botoes[contador].setAttribute('disabled', '');
-          contador += 1;
-        }
+        travar_botoes(indice_certo);
         resposta.classList.remove('sumir');
         foto.classList.add('sumir');
         clearInterval(identificador);
