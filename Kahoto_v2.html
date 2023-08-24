@@ -366,7 +366,7 @@
         height="178"
         width="148"
       />
-      <button type="button" class="jogar_novamente" onclick="jogar_novamente()">
+      <button type="button" class="jogar_novamente" onclick="botao_final()">
         <!-- Jogar novamente -->
       </button>
       <div>
@@ -515,11 +515,12 @@
       let iniciar = () => {
         pagina_1.classList.add('sumir');
         body.classList.add('bg2');
+        body.classList.remove('bg3');
         body.classList.remove('bg1');
         pagina_2.classList.remove('sumir');
         pagina_1.classList.add('sumir');
         pergunta.innerHTML = pagina[indice_p].texto;
-        foto.innerHTML = pagina[indice_p].imagem;
+        foto.setAttribute('src', pagina[indice_p].imagem);
         botao_1.innerHTML = pagina[indice_p].alternativas[0];
         botao_2.innerHTML = pagina[indice_p].alternativas[1];
         botao_3.innerHTML = pagina[indice_p].alternativas[2];
@@ -593,6 +594,15 @@
         clearInterval(identificador);
         timer.classList.add('sumir');
         console.log('corretas: ' + corretas);
+      };
+
+      let botao_final = () => {
+        console.log('chegou aqui');
+        pagina_3.classList.add('sumir');
+        pagina_1.classList.remove('sumir');
+        indice_p = 0;
+        corretas = 0;
+        reiniciar();
       };
     </script>
   </body>
