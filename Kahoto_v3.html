@@ -69,20 +69,31 @@
         display: block;
         border-radius: 100px;
       }
+      .pagina_2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 36px;
+        box-sizing: border-box;
+      }
       .pergunta {
         text-align: center;
         font-family: 'Open Sans', sans-serif;
         font-size: 24px;
         font-weight: 700;
         color: #343434;
-        padding-top: 36px;
+        /* padding-top: 36px;
         padding-left: 17px;
-        padding-right: 17px;
+        padding-right: 17px; */
         margin: 0px;
+        /* align-items: flex-start; */
       }
       .foto {
-        padding-left: 45px;
-        padding-right: 45px;
+        /* padding-left: 45px;
+        padding-right: 45px; */
         /* padding-top: 30px; */
         display: block;
       }
@@ -98,11 +109,14 @@
         background-color: #ef7d14;
         color: white;
       }
+      .width-100 {
+        width: 100%;
+      }
       .alternativa_1 {
         color: white;
         background-color: #d03542;
         border: none;
-        margin-top: 30px;
+        /* margin-top: 30px; */
         padding-top: 20px;
         padding-bottom: 20px;
         padding-left: 132px;
@@ -157,9 +171,9 @@
       .resposta {
         height: 172px;
         width: 230px;
-        margin-left: 45px;
-        margin-right: 45px;
-        margin-top: 30px;
+        /* margin-left: 45px;
+        margin-right: 45px; */
+        /* margin-top: 30px; */
         display: block;
       }
       .resposta_certa {
@@ -279,9 +293,9 @@
         font-size: 20px;
         font-weight: 700;
         text-align: center;
-        margin-top: 6px;
-        margin-left: 136px;
-        margin-bottom: -24px;
+        /* margin-top: 6px;
+        margin-left: 136px; */
+        /* margin-bottom: -110px; */
         border: 1px solid white;
         z-index: 1;
         position: relative;
@@ -309,14 +323,16 @@
       <div class="pergunta"></div>
       <!-- //FIXME: essa div é responsável por adicionar a classe "pergunta" contendo
       o texto. -->
-      <div class="timer">10</div>
-      <img
-        class="foto foto_1"
-        src="https://i.imgur.com/9DRLuQR.jpeg"
-        alt="Mãos_para_cima"
-        height="173"
-        width="230"
-      />
+      <div class="referencia">
+        <div class="timer">10</div>
+        <img
+          class="foto foto_1"
+          src="https://i.imgur.com/9DRLuQR.jpeg"
+          alt="Mãos_para_cima"
+          height="173"
+          width="230"
+        />
+      </div>
       <div class="resposta sumir">
         <div class="bloco_certo sumir">
           <p class="resposta_certa">Alternativa Correta!</p>
@@ -349,26 +365,28 @@
           </button>
         </div>
       </div>
-      <button
-        type="button"
-        class="alternativa_1 botao_1"
-        onclick="alternativa(0)"
-      ></button>
-      <button
-        type="button"
-        class="alternativa_2 botao_2"
-        onclick="alternativa(1)"
-      ></button>
-      <button
-        type="button"
-        class="alternativa_3 botao_3"
-        onclick="alternativa(2)"
-      ></button>
-      <button
-        type="button"
-        class="alternativa_4 botao_4"
-        onclick="alternativa(3)"
-      ></button>
+      <div class="width-100">
+        <button
+          type="button"
+          class="alternativa_1 botao_1"
+          onclick="alternativa(0)"
+        ></button>
+        <button
+          type="button"
+          class="alternativa_2 botao_2"
+          onclick="alternativa(1)"
+        ></button>
+        <button
+          type="button"
+          class="alternativa_3 botao_3"
+          onclick="alternativa(2)"
+        ></button>
+        <button
+          type="button"
+          class="alternativa_4 botao_4"
+          onclick="alternativa(3)"
+        ></button>
+      </div>
     </div>
     <div class="pagina_3 sumir">
       <div class="margem_texto">
@@ -418,6 +436,7 @@
       let texto_parabens = document.querySelector('.texto_parabens');
       let boneco_1 = document.querySelector('.boneco_1');
       let jogar_novamente = document.querySelector('.jogar_novamente');
+      let referencia = document.querySelector('.referencia');
 
       let segundos = 10;
       let identificador = null;
@@ -500,6 +519,7 @@
           resposta.classList.add('laranja');
           bloco_tempo.classList.remove('sumir');
           travar_botoes(indice_certo);
+          referencia.classList.add('sumir');
         }
       };
 
@@ -511,6 +531,7 @@
         bloco_tempo.classList.add('sumir');
         bloco_certo.classList.add('sumir');
         bloco_errado.classList.add('sumir');
+        referencia.classList.remove('sumir');
         let contador = 0;
         while (contador < botoes.length) {
           botoes[contador].classList.remove('opacidade');
