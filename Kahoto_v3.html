@@ -40,6 +40,8 @@
       }
       .bg2 {
         background-color: white;
+        display: flex;
+        gap: 200px;
       }
       .bg3 {
         background-color: #25076b;
@@ -70,6 +72,16 @@
         display: block;
         border-radius: 100px;
         aspect-ratio: 199/45;
+        opacity: 1;
+        transition: transform steps(5) 0.5s 0s, opacity ease 1s 0.5s;
+      }
+      .hora_do_show .iniciar {
+        /* transform: translateY(50px); */
+        opacity: 0.5;
+      }
+      .hora_do_show .logo {
+        /* transform: translateY(50px); */
+        opacity: 0.5;
       }
       .pagina_2 {
         display: flex;
@@ -80,7 +92,6 @@
         align-items: center;
         padding-top: 36px;
         box-sizing: border-box;
-        column-gap: 30px;
       }
       .pagina_3 {
         display: flex;
