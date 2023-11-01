@@ -58,6 +58,7 @@
         height: auto;
         display: flex;
         justify-content: center;
+        z-index: 1;
       }
       .iniciar {
         width: calc((199px * 0.5) + (62.18vw * 0.5));
@@ -73,6 +74,7 @@
         border-radius: 100px;
         aspect-ratio: 199/45;
         opacity: 1;
+        z-index: 1;
         transition: transform steps(5) 0.5s 0s, opacity ease 1s 0.5s;
       }
       .hora_do_show .iniciar {
@@ -246,7 +248,7 @@
         height: auto;
         aspect-ratio: 1/1;
         border-radius: 50%;
-        background-color: #874EC1;
+        background-color: #874ec1;
         color: white;
         font-family: 'Open Sans', sans-serif;
         font-size: calc((24px * 0.5) + (7.5vw * 0.5));
@@ -266,16 +268,66 @@
         flex-direction: column;
         height: calc((240px * 0.5) + (75vw * 0.5));
       }
+      .bloco-lilas {
+        background-color: #46178f;
+        width: 600px;
+        height: 600px;
+        transform: rotate(47.19deg);
+        margin-top: 138px;
+        margin-bottom: -418px;
+        margin-left: -65px;
+        margin-right: -463px;
+        position: absolute;
+        z-index: 0;
+      }
       .referencia {
         position: relative;
       }
       .sumir {
         display: none;
       }
+
+      .d-none {
+        display: none !important;
+      }
+      .d-block {
+        display: block !important;
+      }
+      .d-flex {
+        display: flex !important;
+      }
+
+      @media (min-width: 768px) {
+        .d-md-none {
+          display: none !important;
+        }
+        .d-md-block {
+          display: block !important;
+        }
+        .d-md-flex {
+          display: flex !important;
+        }
+        .iniciar {
+          color: red;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .d-lg-none {
+          display: none !important;
+        }
+        .d-lg-block {
+          display: block !important;
+        }
+        .d-lg-flex {
+          display: flex !important;
+        }
+      }
     </style>
   </head>
   <body class="bg1">
     <div class="pagina_1 sumir">
+      <div class="bloco-lilas"></div>
       <img
         class="logo"
         src="https://i.imgur.com/54i73yb.png"
@@ -283,7 +335,23 @@
         height="200"
         width="587"
       />
-      <button type="button" onclick="iniciar()" class="iniciar">Iniciar</button>
+      <button type="button" onclick="iniciar()" class="iniciar d-md-none">
+        Iniciar
+      </button>
+      <button
+        type="button"
+        onclick="iniciar()"
+        class="iniciar d-none d-md-block d-lg-none"
+      >
+        Iniciar (md)
+      </button>
+      <button
+        type="button"
+        onclick="iniciar()"
+        class="iniciar d-none d-lg-block"
+      >
+        Iniciar (lg)
+      </button>
     </div>
     <div class="pagina_2 sumir">
       <div class="pergunta"></div>
