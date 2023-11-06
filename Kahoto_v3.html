@@ -44,7 +44,7 @@
         gap: 200px;
       }
       .bg3 {
-        background-color: #25076b;
+        background-color: #46178f;
       }
       .pagina_1 {
         display: flex;
@@ -54,7 +54,7 @@
         min-height: 100%;
       }
       .logo {
-        width: 84.68vw;
+        width: calc((270px * 0.5) + (84.375vw * 0.5));
         height: auto;
         display: flex;
         justify-content: center;
@@ -65,7 +65,7 @@
         height: auto;
         font-size: calc((24px * 0.5) + (7.5vw * 0.5));
         font-family: 'Open Sans', sans-serif;
-        font-weight: 600;
+        font-weight: 500;
         background-color: white;
         border: none;
         color: #535151;
@@ -185,14 +185,13 @@
         border-radius: 9.37vw;
       }
       .texto_parabens {
-        color: black;
-        background-color: white;
+        color: white;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
-        font-size: 6.25vw;
+        font-size: 7.5vw;
         font-weight: 700;
-        padding-top: 3.43vw;
-        padding-bottom: 2.81vw;
+        /* padding-top: 12.5vw;
+        padding-bottom: 2.81vw; */
         width: 84.37vw;
       }
       .margem_texto {
@@ -305,8 +304,13 @@
         .d-md-flex {
           display: flex !important;
         }
+        .logo {
+          width: 70.313vw;
+        }
         .iniciar {
-          color: red;
+          width: calc((398px * 0.5) + (51.823vw * 0.5));
+          font-size: calc((48px * 0.5) + (6.25vw * 0.5));
+          aspect-ratio: 398/90;
         }
       }
 
@@ -320,12 +324,20 @@
         .d-lg-flex {
           display: flex !important;
         }
+        .logo {
+          width: 52.734vw;
+        }
+        .iniciar {
+          width: calc((398px * 0.5) + (38.867vw * 0.5));
+          font-size: calc((48px * 0.5) + (4.68vw * 0.5));
+          aspect-ratio: 398/90;
+        }
       }
     </style>
   </head>
   <body class="bg1">
     <div class="pagina_1 sumir">
-      <div class="bloco-lilas"></div>
+      <!-- <div class="bloco-lilas"></div> -->
       <img
         class="logo"
         src="https://i.imgur.com/54i73yb.png"
@@ -333,23 +345,7 @@
         height="200"
         width="587"
       />
-      <button type="button" onclick="iniciar()" class="iniciar d-md-none">
-        Iniciar
-      </button>
-      <button
-        type="button"
-        onclick="iniciar()"
-        class="iniciar d-none d-md-block d-lg-none"
-      >
-        Iniciar (md)
-      </button>
-      <button
-        type="button"
-        onclick="iniciar()"
-        class="iniciar d-none d-lg-block"
-      >
-        Iniciar (lg)
-      </button>
+      <button type="button" onclick="iniciar()" class="iniciar">Iniciar</button>
     </div>
     <div class="pagina_2 sumir">
       <div class="pergunta"></div>
