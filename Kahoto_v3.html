@@ -62,7 +62,6 @@
         height: auto;
         display: flex;
         justify-content: center;
-        /* z-index: 1; */
       }
       .iniciar {
         width: calc((199px * 0.5) + (62.18vw * 0.5));
@@ -78,7 +77,7 @@
         border-radius: 100px;
         aspect-ratio: 199/45;
         opacity: 1;
-        /* z-index: 1; */
+
         transition: transform steps(5) 0.5s 0s, opacity ease 1s 0.5s;
       }
       .hora_do_show .iniciar {
@@ -98,6 +97,7 @@
         align-items: center;
         box-sizing: border-box;
         gap: 30px;
+        width: 100%;
       }
       .pagina_3 {
         display: flex;
@@ -111,18 +111,21 @@
       .pergunta {
         text-align: center;
         font-family: 'Open Sans', sans-serif;
-        font-size: 7.5vw;
+        font-size: min(7.5vw, 48px);
         font-weight: 700;
         color: #343434;
         line-height: 123.182%;
         padding-top: 14px;
         padding-bottom: 13px;
         background-color: white;
+        width: 100%;
       }
       .foto {
         display: flex;
         width: min(71.87vw, 460px);
         height: auto;
+        object-fit: cover;
+        aspect-ratio: 230/172;
       }
       .vermelho {
         background-color: #d72b2b;
@@ -147,7 +150,7 @@
         color: white;
         border: none;
         width: 100%;
-        font-size: calc((1rem * 0.5) + (5vw * 0.5));
+        font-size: min(calc((1rem * 0.5) + (5vw * 0.5)), 32px);
         cursor: pointer;
         font-weight: 700;
         flex-grow: 1;
@@ -175,30 +178,28 @@
       .resposta_errada,
       .resposta_tempo {
         font-family: 'Open Sans', sans-serif;
-        font-size: 6.25vw;
+        font-size: min(6.25vw, 40px);
         font-weight: 800;
         text-align: center;
       }
       .seguinte {
         background-color: white;
         font-family: 'Open Sans', sans-serif;
-        font-size: 5vw;
+        font-size: min(5vw, 32px);
         font-weight: 700;
         border: none;
-        padding-top: 2.18vw;
-        padding-bottom: 1.87vw;
-        padding-left: 10.31vw;
-        padding-right: 10.31vw;
+        padding-top: min(2.18vw, 13px);
+        padding-bottom: min(1.87vw, 13px);
+        padding-left: min(10.31vw, 67px);
+        padding-right: min(10.31vw, 66px);
         border-radius: 9.37vw;
       }
       .texto_parabens {
         color: white;
         text-align: center;
         font-family: 'Open Sans', sans-serif;
-        font-size: 7.5vw;
+        font-size: min(7.5vw, 48px);
         font-weight: 700;
-        /* padding-top: 12.5vw;
-        padding-bottom: 2.81vw; */
         width: 84.37vw;
       }
       .margem_texto {
@@ -206,27 +207,26 @@
       }
       .boneco_1 {
         display: block;
-        height: 55.68vw;
-        width: 46.25vw;
+        height: min(55.68vw, 372px);
+        width: min(46.25vw, 310px);
       }
       .jogar_novamente {
         border: none;
         background-color: white;
         color: #535151;
         border-radius: 6.25vw;
-        font-size: calc((20px * 0.5) + (6.25vw * 0.5));
+        font-size: min(calc((20px * 0.5) + (6.25vw * 0.5)), 36px);
         font-family: 'Open Sans', sans-serif;
         font-weight: 700;
-        padding-top: calc((10px * 0.5) + (3.12vw * 0.5));
-        padding-bottom: calc((10px * 0.5) + (3.12vw * 0.5));
-        padding-right: calc((21px * 0.5) + (6.5vw * 0.5));
-        padding-left: calc((21px * 0.5) + (6.5vw * 0.5));
+        padding-top: min(calc((10px * 0.5) + (3.12vw * 0.5)), 23px);
+        padding-bottom: min(calc((10px * 0.5) + (3.12vw * 0.5)), 23px);
+        padding-right: min(calc((21px * 0.5) + (6.5vw * 0.5)), 62px);
+        padding-left: min(calc((21px * 0.5) + (6.5vw * 0.5)), 61px);
         aspect-ratio: 216/45;
       }
       .logo_2 {
-        display: block;
-        height: calc((57px * 0.5) + (17.81vw * 0.5));
-        width: calc((159px * 0.5) + (49.68vw * 0.5));
+        height: 57px;
+        width: 159px;
       }
       .fonte_verde {
         color: #11811c;
@@ -250,7 +250,8 @@
         height: 100%;
       }
       .timer {
-        width: calc((48px * 0.5) + (15vw * 0.5));
+        --tamanho: calc((48px * 0.5) + (15vw * 0.5));
+        width: var(--tamanho);
         height: auto;
         aspect-ratio: 1/1;
         border-radius: 50%;
@@ -266,8 +267,8 @@
         justify-content: center;
         align-items: center;
         position: absolute;
-        top: -7.5vw;
-        left: calc(50% - 7.5vw);
+        top: calc(var(--tamanho) / -2);
+        left: calc(50% - (var(--tamanho) / 2));
       }
       .grupo_botoes {
         display: flex;
@@ -321,14 +322,15 @@
           aspect-ratio: 398/90;
         }
         .pergunta {
-          font-size: 6.25vw;
           padding-bottom: 29px;
+          padding-top: 29px;
           background-color: white;
         }
         .timer {
-          width: calc((68px * 0.5) + (8.85vw * 0.5));
-          top: 17.96vw;
-          left: -14.45vw;
+          --tamanho: calc((100px * 0.5) + (9.766vw * 0.5));
+          --distancia: -39px;
+          top: calc(50% - (var(--tamanho) / 2));
+          left: calc((var(--tamanho) * -1) + var(--distancia));
           font-size: calc((32px * 0.5) + (4.16vw * 0.5));
         }
         .alternativa_1,
@@ -340,6 +342,10 @@
         }
         .grupo_botoes {
           height: calc((360px * 0.5) + (46.875vw * 0.5));
+        }
+        .resposta {
+          width: 59.896vw;
+          aspect-ratio: 460/344;
         }
       }
 
@@ -360,6 +366,16 @@
           width: calc((398px * 0.5) + (38.867vw * 0.5));
           font-size: calc((48px * 0.5) + (4.68vw * 0.5));
           aspect-ratio: 398/90;
+        }
+        .pergunta {
+          font-size: 46px;
+          padding-bottom: 32px;
+          padding-top: 31px;
+        }
+        .timer {
+          --tamanho: 100px;
+          --distancia: -89px;
+          font-size: calc((32px * 0.5) + (4.16vw * 0.5));
         }
       }
     </style>
@@ -520,7 +536,7 @@
           texto: 'Qual empresa criou o iPhone?',
           r_certa: 3,
           alternativas: ['Google', 'Amazon', 'Microsoft', 'Apple'],
-          imagem: 'https://i.imgur.com/S8Tflln.jpeg',
+          imagem: 'https://i.imgur.com/NO9Pcsx.jpeg',
         },
         {
           texto: 'Quantos dias tem um ano bissexto?',
