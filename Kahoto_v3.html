@@ -40,7 +40,6 @@
       }
       .bg1 {
         background-color: #25076b;
-        background-repeat: no-repeat;
       }
       .bg2 {
         background-color: #f2f2f2;
@@ -290,6 +289,12 @@
         flex-direction: column;
         flex-grow: 1;
       }
+      .pontos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 57px;
+      }
       .referencia {
         position: relative;
         display: flex;
@@ -319,7 +324,7 @@
           display: flex !important;
         }
         .logo {
-          width: 70.313vw;
+          width: 70.313vw * 0.5;
         }
         .iniciar {
           width: calc((398px * 0.5) + (51.823vw * 0.5));
@@ -352,6 +357,9 @@
           width: 59.896vw;
           aspect-ratio: 460/344;
         }
+        .pontos {
+          gap: 92px;
+        }
       }
       @media (min-width: 1024px) {
         .d-lg-none {
@@ -364,11 +372,11 @@
           display: flex !important;
         }
         .logo {
-          width: 52.734vw;
+          width: 540px;
         }
         .iniciar {
-          width: calc((398px * 0.5) + (38.867vw * 0.5));
-          font-size: calc((48px * 0.5) + (4.68vw * 0.5));
+          width: 398px;
+          font-size: 48px;
           aspect-ratio: 398/90;
         }
         .pergunta {
@@ -400,6 +408,10 @@
         .resposta_errada,
         .resposta_tempo {
           font-size: 40px;
+        }
+        .pontos {
+          flex-direction: row;
+          gap: 0px;
         }
       }
     </style>
@@ -490,22 +502,31 @@
       </div>
     </div>
     <div class="pagina_3 sumir">
-      <div class="margem_texto">
-        <p class="texto_parabens"></p>
+      <div class="d-none d-lg-flex vermelho">
+        <img
+          class="logo_2"
+          src="https://i.imgur.com/54i73yb.png"
+          alt="Kahoot_Logo"
+        />
       </div>
-      <img
-        class="boneco_1"
-        src="https://i.imgur.com/pt7qNpR.png"
-        alt="boneco_feliz"
-        height="178"
-        width="148"
-      />
+      <div class="pontos">
+        <div class="margem_texto">
+          <p class="texto_parabens"></p>
+        </div>
+        <img
+          class="boneco_1"
+          src="https://i.imgur.com/pt7qNpR.png"
+          alt="boneco_feliz"
+          height="178"
+          width="148"
+        />
+      </div>
       <button
         type="button"
         class="jogar_novamente"
         onclick="botao_final()"
       ></button>
-      <div>
+      <div class="d-lg-none">
         <img
           class="logo_2"
           src="https://i.imgur.com/54i73yb.png"
