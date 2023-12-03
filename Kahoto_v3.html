@@ -103,8 +103,9 @@
         flex-direction: column;
         align-items: center;
         min-height: 100%;
-        justify-content: space-evenly;
+        justify-content: center;
         box-sizing: border-box;
+        gap: 57px;
       }
       .pergunta {
         text-align: center;
@@ -198,7 +199,8 @@
         font-family: 'Open Sans', sans-serif;
         font-size: min(7.5vw, 48px);
         font-weight: 700;
-        width: 84.37vw;
+        line-height: 1;
+        /* width: 84.37vw; */
       }
       .margem_texto {
         margin: 0px;
@@ -293,6 +295,13 @@
         flex-direction: column;
         align-items: center;
         gap: 57px;
+      }
+      .texto_parabens_desktop {
+        display: flex;
+        flex-direction: column;
+      }
+      .num_corretas {
+        font-size: 300px;
       }
       .referencia {
         position: relative;
@@ -410,7 +419,7 @@
         }
         .pontos {
           flex-direction: row;
-          gap: 0px;
+          gap: 159px;
         }
       }
     </style>
@@ -501,7 +510,7 @@
       </div>
     </div>
     <div class="pagina_3 sumir">
-      <div class="d-none d-lg-flex vermelho">
+      <div class="d-none d-lg-flex">
         <img
           class="logo_2"
           src="https://i.imgur.com/54i73yb.png"
@@ -706,13 +715,12 @@
         }
         foto_1.classList.remove('sumir');
         timer.classList.remove('sumir');
-        //FIXME://FIXME://FIXME://FIXME://FIXME://FIXME://FIXME:
-        // if (identificador != null) {
-        //   clearInterval(identificador);
-        // }
-        // identificador = setInterval(f_timer, 1000);
-        // segundos = 10;
-        // timer.innerHTML = segundos + '';
+        if (identificador != null) {
+          clearInterval(identificador);
+        }
+        identificador = setInterval(f_timer, 1000);
+        segundos = 10;
+        timer.innerHTML = segundos + '';
       };
 
       let iniciar = () => {
@@ -767,7 +775,7 @@
               <span class="texto_parabens_desktop d-none d-lg-flex">
                 <span>Você acertou</span>
                 <span class="num_corretas">${corretas}</span>
-                <span>pergunta${s}!</span>
+                <span>perguntas!</span>
               </span>
             `;
           } else if (corretas === pagina.length) {
@@ -779,7 +787,7 @@
               <span class="texto_parabens_desktop d-none d-lg-flex">
                 <span>Você acertou</span>
                 <span class="num_corretas">${corretas}</span>
-                <span>pergunta${s}!</span>
+                <span>perguntas!</span>
               </span>
             `;
           }
@@ -816,6 +824,11 @@
         clearInterval(identificador);
         timer.classList.add('sumir');
         console.log('corretas: ' + corretas);
+
+        foto.setAttribute(
+          'src',
+          'data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='
+        );
       };
 
       let botao_final = () => {
