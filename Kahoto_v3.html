@@ -653,19 +653,17 @@
           imagem: 'https://i.imgur.com/ZEnU5PX.jpeg',
         },
       ];
+      let boneco = null;
 
-      let boneco = [
-        {
-          imagem: 'https://i.imgur.com/pt7qNpR.png',
-          // boneco feliz
-          texto: 'Jogar novamente',
-        },
-        {
-          imagem: 'https://i.imgur.com/zX5Gupx.png',
-          // boneco triste
-          texto: 'Tentar novamente',
-        },
-      ];
+      let carregar_bonecos = async () => {
+        let promiseResposta = fetch('./boneco.json');
+        let resposta = await promiseResposta;
+        let promiseBoneco = resposta.text();
+        let bonecoString = await promiseBoneco;
+        boneco = JSON.parse(bonecoString);
+        console.log(boneco);
+      };
+      carregar_bonecos();
 
       let indice_p = 0;
 

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teste avulso</title>
+    <style>
+      body {
+        background-color: brown;
+      }
+      .sumir {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="botao" onclick="tentativa()">Começar</button>
+    <img
+      class="link sumir"
+      src="https://i.imgur.com/pt7qNpR.png"
+      alt="boneco_feliz"
+      height="178"
+      width="148"
+    />
+    <div class="texto sumir"></div>
+    <script>
+      let link = document.querySelector('.link');
+      let texto = document.querySelector('.texto');
+      let botao = document.querySelector('.botao');
+      let boneco = null;
+      let tentativa = async () => {
+        link.classList.remove('sumir');
+        texto.classList.remove('sumir');
+        botao.classList.add('sumir');
+        let promiseResposta = fetch('./boneco.json');
+        let resposta = await promiseResposta;
+        let promiseBoneco = resposta.text();
+        let bonecoString = await promiseBoneco;
+        let boneco = JSON.parse(bonecoString);
+        console.log(boneco);
+        link.setAttribute('src', boneco[0].imagem);
+        texto.innerHTML = boneco[0].texto;
+      };
+    </script>
+  </body>
+</html>
