@@ -576,83 +576,17 @@
 
       pagina_1.classList.remove('sumir');
 
-      let pagina = [
-        {
-          texto: 'Qual animal representa o símbolo da paz?',
-          r_certa: 0,
-          alternativas: ['Pomba', 'Gato', 'Elefante', 'Cobra'],
-          imagem: 'https://i.imgur.com/9DRLuQR.jpeg',
-        },
-        {
-          texto: 'O sushi é uma comida original de qual país?',
-          r_certa: 2,
-          alternativas: ['Tailândia', 'China', 'Japão', 'Coreia do Sul'],
-          imagem: 'https://i.imgur.com/GiDrhQE.jpeg',
-        },
-        {
-          texto: 'Qual empresa criou o iPhone?',
-          r_certa: 3,
-          alternativas: ['Google', 'Amazon', 'Microsoft', 'Apple'],
-          imagem: 'https://i.imgur.com/NO9Pcsx.jpeg',
-        },
-        {
-          texto: 'Quantos dias tem um ano bissexto?',
-          r_certa: 2,
-          alternativas: ['364 dias', '356 dias', '366 dias', '376 dias'],
-          imagem: 'https://i.imgur.com/baZifzW.png',
-        },
-        {
-          texto: 'Qual a cor da caixa-preta do avião?',
-          r_certa: 1,
-          alternativas: ['Azul', 'Laranja', 'Branco', 'Preto'],
-          imagem: 'https://i.imgur.com/7bihkJB.jpeg',
-        },
-        {
-          texto: 'De onde é a invenção do chuveiro elétrico?',
-          r_certa: 2,
-          alternativas: ['França', 'Inglaterra', 'Brasil', 'Estados Unidos'],
-          imagem: 'https://i.imgur.com/tsbSNKc.png',
-        },
-        {
-          texto: 'Qual o menor e o maior país do mundo?',
-          r_certa: 0,
-          alternativas: [
-            'Vaticano e Rússia',
-            'Nauru e China',
-            'Mônaco e Canadá',
-            'São Marino e Índia',
-          ],
-          imagem: 'https://i.imgur.com/YMdg9HX.png',
-        },
-        {
-          texto: 'Quais países não fazem fronteira com o Brasil?',
-          r_certa: 2,
-          alternativas: [
-            'Colômbia e Chile',
-            'Suriname e Equador',
-            'Chile e Equador',
-            'Guiana e Guiana Francesa',
-          ],
-          imagem: 'https://i.imgur.com/yZACFdJ.jpeg',
-        },
-        {
-          texto: 'Qual metal cujo símbolo é Au?',
-          r_certa: 3,
-          alternativas: ['Cobre', 'Prata', 'Mercúrio', 'Ouro'],
-          imagem: 'https://i.imgur.com/4wRFu8s.jpeg',
-        },
-        {
-          texto: 'Qual nome desse símbolo "*"?',
-          r_certa: 1,
-          alternativas: [
-            'Asterístico',
-            'Asterisco',
-            'Astirístico',
-            'Astetístico',
-          ],
-          imagem: 'https://i.imgur.com/ZEnU5PX.jpeg',
-        },
-      ];
+      let pagina = null;
+      let carregar_perguntas = async () => {
+        let promiseResposta = fetch('./perguntas.json');
+        let resposta = await promiseResposta;
+        let promisePagina = resposta.text();
+        let paginaString = await promisePagina;
+        pagina = JSON.parse(paginaString);
+        console.log(pagina);
+      };
+      carregar_perguntas();
+
       let boneco = null;
 
       let carregar_bonecos = async () => {
